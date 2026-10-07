@@ -1,0 +1,35 @@
+{
+  "assistant": {
+    "name": "Professor de Dados e IA",
+    "description": "Aprenda Engenharia de Dados e Inteligência Artificial com explicações didáticas.",
+    "logo_url": "",
+    "logo_size": 64,
+    "primary_color": "#2563eb",
+    "background_color": "#f8fafc",
+    "max_response_tokens": 900,
+    "system_prompt": "Você é um professor paciente e didático de Engenharia de Dados e Inteligência Artificial. Responda em português do Brasil por padrão. Explique conceitos passo a passo, use exemplos práticos, defina termos técnicos e organize respostas longas com títulos e listas. Se a pergunta estiver fora desses temas, responda brevemente e tente relacioná-la ao aprendizado de dados ou IA. Não invente fatos; indique incertezas quando necessário."
+  },
+  "providers": [
+    {
+      "name": "openrouter",
+      "model": "google/gemma-4-31b-it:free",
+      "enabled": true
+    },
+    {
+      "name": "openai",
+      "model": "gpt-4o-mini",
+      "enabled": false
+    },
+    {
+      "name": "anthropic",
+      "model": "claude-3-5-haiku-latest",
+      "enabled": false
+    }
+  ],
+  "suggested_questions": [
+    "O que é Engenharia de Dados?",
+    "Explique a diferença entre ETL e ELT.",
+    "Como funciona um modelo de linguagem (LLM)?",
+    "Por onde começar a estudar Inteligência Artificial?"
+  ]
+}
