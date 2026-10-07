@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["assistant", "providers", "suggested_questions"],
+  "properties": {
+    "assistant": {
+      "type": "object",
+      "required": ["name", "description", "logo_url", "logo_size", "primary_color", "background_color", "max_response_tokens", "system_prompt"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 100},
+        "description": {"type": "string", "maxLength": 500},
+        "logo_url": {"type": "string", "maxLength": 2000},
+        "logo_size": {"type": "integer", "minimum": 24, "maximum": 256},
+        "primary_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "background_color": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"},
+        "max_response_tokens": {"type": "integer", "minimum": 64, "maximum": 8192},
+        "system_prompt": {"type": "string", "minLength": 10, "maxLength": 12000}
+      },
+      "additionalProperties": false
+    },
+    "providers": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["name", "model", "enabled"],
+        "properties": {
+          "name": {"enum": ["openrouter", "openai", "anthropic"]},
+          "model": {"type": "string", "minLength": 1, "maxLength": 200},
+          "enabled": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "suggested_questions": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {"type": "string", "minLength": 1, "maxLength": 200}
+    }
+  },
+  "additionalProperties": false
+}
