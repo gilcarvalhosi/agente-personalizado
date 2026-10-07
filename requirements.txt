@@ -1,0 +1,4 @@
+gradio>=5.20,<6
+openai>=1.68,<3
+anthropic>=0.49,<1
+jsonschema>=4.23,<5
